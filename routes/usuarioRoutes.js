@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
 
     try {
         await Usuario.create(usuario);
-        res.status(201).json({ message: 'Aluno inserido no sistema com sucesso!' });
+        res.status(201).json({ message: 'Usuario inserido no sistema com sucesso!' });
     } catch (error) {
         res.status(500).json({ error: error });
     }
@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 
 // Read - leitura de dados com filtros opcionais
 router.get('/', async (req, res) => {
-    const { name, phone } = req.query;
+    const { name, email, password, phone } = req.query;
 
     let filter = {};
 
@@ -52,7 +52,7 @@ router.get('/', async (req, res) => {
     }
 
     try {
-        const usuarios = await Aluno.find(filter);
+        const usuarios = await Usuario.find(filter);
         res.status(200).json(usuarios);
     } catch (error) {
         res.status(500).json({ erro: error });
@@ -68,7 +68,7 @@ router.get('/:id', async (req, res) => {
         const usuario = await Usuario.findOne({_id: id})
 
         if(!usuario) {
-            res.status(422).json({message: 'O aluno não foi encontrado!'})
+            res.status(422).json({message: 'O usuario não foi encontrado!'})
             return;
         }
 
@@ -103,7 +103,7 @@ router.patch('/:id', async (req, res) => {
         );
 
         if (!updatedUsuario) {
-            return res.status(422).json({ message: 'O aluno não foi encontrado!' });
+            return res.status(422).json({ message: 'O usuario não foi encontrado!' });
         }
 
         res.status(200).json(updatedUsuario);
@@ -125,11 +125,11 @@ router.delete('/:id', async (req, res) => {
         await Usuario.deleteOne({_id: id})
 
         if(!usuario) {
-            res.status(422).json({message: 'O aluno não foi encontrado!'})
+            res.status(422).json({message: 'O usuario não foi encontrado!'})
             return;
         }
 
-        res.status(200).json({message: 'Aluno removido com sucesso'})
+        res.status(200).json({message: 'Usuario removido com sucesso'})
         
     }catch(error){
         res.status(500).json({ erro: error})
