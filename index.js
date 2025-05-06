@@ -15,8 +15,10 @@ app.use(express.json()) //permite ler json
 
 // rotas da API
 const usuarioRoutes = require('./routes/usuarioRoutes')
+const petRoutes = require('./routes/petRoutes')
 
 app.use('/usuario', usuarioRoutes)
+app.use('/pet', petRoutes)
 
 //rota inicial / endpoint
 app.get('/', (req, res) => {
@@ -29,6 +31,7 @@ app.get('/', (req, res) => {
 
 const DB_USER = process.env.DB_USER
 const DB_PASSWORD = process.env.DB_PASSWORD
+//const URL = process.env.URL
 
 //entregar uma porta
 mongoose

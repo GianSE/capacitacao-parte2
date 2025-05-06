@@ -20,11 +20,11 @@ const petSchema = new mongoose.Schema({
 });
 
 // Middleware para atualizar a data antes de salvar
-usuarioSchema.pre('findOneAndUpdate', function (next) {
+petSchema.pre('findOneAndUpdate', function (next) {
     this._update.updatedAt = moment().format('YYYY-MM-DD HH:mm:ss');
     next();
 });
 
-const Usuario = mongoose.model('Usuario', usuarioSchema);
+const Pet = mongoose.model('Pet', petSchema);
 
-module.exports = Usuario;
+module.exports = Pet;
