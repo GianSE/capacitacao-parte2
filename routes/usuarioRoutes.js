@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const checkToken = require('../middlewares/checkToken')
+const checkToken = require('../middleware/checkToken')
 
 const Usuario = require('../models/Usuario')
 

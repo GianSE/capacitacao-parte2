@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Pet = require('../models/Pet');
-const checkToken = require('../middleware/checkTokens');
+const checkToken = require('../middleware/checkToken');
 
 // ✅ Rota POST para cadastro de pets (*validar token)
 router.post('/', checkToken, async (req, res) => {
