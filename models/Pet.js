@@ -1,28 +1,35 @@
 const mongoose = require('mongoose');
-const moment = require('moment');
 
 const petSchema = new mongoose.Schema({
-    name: String,
-    age: Number,
-    weight: Number,
-    color: String,
-    available: Boolean,
-    user: Object,
-    adopter: Object,
-    createdAt: {
+    name: {
         type: String,
-        default: () => moment().format('YYYY-MM-DD HH:mm:ss')
+        required: true
     },
-    updatedAt: {
-        type: String,
-        default: () => moment().format('YYYY-MM-DD HH:mm:ss')
+    age: {
+        type: Number
+    },
+    weight: {
+        type: Number
+    },
+    color: {
+        type: String
+    },
+    available: {
+        type: Boolean,
+        default: true
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    adopter: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        default: null
     }
-});
-
-// Middleware para atualizar a data antes de salvar
-petSchema.pre('findOneAndUpdate', function (next) {
-    this._update.updatedAt = moment().format('YYYY-MM-DD HH:mm:ss');
-    next();
+}, {
+    timestamps: true // ✅ Isso cria createdAt e updatedAt automaticamente
 });
 
 const Pet = mongoose.model('Pet', petSchema);

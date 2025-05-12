@@ -1,6 +1,22 @@
-const router = require("express").Router();
+const express = require('express')
+const router = express.Router()
+const checkToken = require('../middlewares/checkToken')
 
 const Usuario = require('../models/Usuario')
+
+//Private Route
+router.get('/me', checkToken, async (req, res) => {
+    try {
+        const usuario = await Usuario.findById(req.userId, '-password')
+        if (!usuario) {
+            return res.status(404).json({ msg: 'Usuário não encontrado' })
+        }
+
+        res.status(200).json({ user: usuario })
+    } catch (error) {
+        res.status(500).json({ msg: 'Erro ao buscar usuário autenticado' })
+    }
+})
 
 //Create - criação de dados
 router.post('/', async (req, res) => {
@@ -35,6 +51,29 @@ router.post('/', async (req, res) => {
         res.status(500).json({ error: error });
     }
 });
+
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return res.status(422).json({ error: 'Email e senha são obrigatórios!' });
+    }
+
+    try {
+        const usuario = await Usuario.findOne({ email });
+
+        if (!usuario || usuario.password !== password) {
+            return res.status(401).json({ error: 'Credenciais inválidas' });
+        }
+
+        // Idealmente, você deve gerar um token JWT aqui
+        res.status(200).json({ message: 'Login realizado com sucesso!' });
+
+    } catch (error) {
+        res.status(500).json({ error });
+    }
+});
+
 
 // Read - leitura de dados com filtros opcionais
 router.get('/', async (req, res) => {
