@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const jwt = require('jsonwebtoken') // adicione isso no topo do arquivo
+require('dotenv').config() // já deve estar no topo também
 const checkToken = require('../middleware/checkToken')
 
 const Usuario = require('../models/Usuario')
@@ -19,7 +21,7 @@ router.get('/me', checkToken, async (req, res) => {
 })
 
 //Create - criação de dados
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
 
     // Verificação de corpo inválido
     if (!req.body) {
@@ -52,6 +54,7 @@ router.post('/', async (req, res) => {
     }
 });
 
+
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
@@ -66,13 +69,28 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Credenciais inválidas' });
         }
 
-        // Idealmente, você deve gerar um token JWT aqui
-        res.status(200).json({ message: 'Login realizado com sucesso!' });
+        const secret = process.env.SECRET; // assegure-se de que essa variável exista no seu .env
+
+        const token = jwt.sign(
+            {
+                id: usuario._id,
+            },
+            secret,
+            {
+                expiresIn: '1d' // ou o tempo que preferir
+            }
+        );
+
+        res.status(200).json({
+            message: 'Login realizado com sucesso!',
+            token: token
+        });
 
     } catch (error) {
         res.status(500).json({ error });
     }
 });
+
 
 
 // Read - leitura de dados com filtros opcionais
