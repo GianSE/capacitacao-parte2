@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "fb9ef676-941d-4e5e-aca7-8ded7ed2013d",
+		"name": "API Pets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44412593",
+		"_collection_link": "https://gian-2971076.postman.co/workspace/Gian's-Workspace~83da9655-d094-414e-8472-6fd7c20bcd0f/collection/44412593-fb9ef676-941d-4e5e-aca7-8ded7ed2013d?action=share&source=collection_link&creator=44412593"
+	},
+	"item": [
+		{
+			"name": "Cadastro Pet(token)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Teste\",\r\n  \"age\": 5,\r\n  \"weight\": 12.5,\r\n  \"color\": \"Amarela\",\r\n  \"available\": true,\r\n  \"user\": \"68197d0b3a9ac6ab39be2d8d\",  \r\n  \"adopter\": null\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/pet/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resgatar Pets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/pet/all",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pets do usuario(token)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/pet/mypets",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"mypets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resgatar Pet(id)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/pet/6822cb985b306fbe980a17dc",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"6822cb985b306fbe980a17dc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Pet(token,id)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Thor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/pet/6822cb985b306fbe980a17dc",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"6822cb985b306fbe980a17dc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Usuario(token, id)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKENemilly}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/pet/6822828f4f7468a6497b0908",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"6822828f4f7468a6497b0908"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agendar visita(token, id)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjJjYzk0NWIzMDZmYmU5ODBhMTdlYiIsImlhdCI6MTc0NzExMTA3NCwiZXhwIjoxNzQ3MTk3NDc0fQ.FGmkaQDuxlc0cmBc3IdN7uSyh4wjVqQQ4N69wFhXEsM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/pet/schedule/6822cb985b306fbe980a17dc",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"schedule",
+						"6822cb985b306fbe980a17dc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adoção pet(token, id)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Thor\",\r\n  \"age\": 3,\r\n  \"weight\": 12.5,\r\n  \"color\": \"Marrom\",\r\n  \"available\": true,\r\n  \"user\": \"68197d0b3a9ac6ab39be2d8d\",  \r\n  \"adopter\": null\r\n\r\n}"
+				},
+				"url": {
+					"raw": "{{URL}}/pet/adopt/6822cb985b306fbe980a17dc",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"adopt",
+						"6822cb985b306fbe980a17dc"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjJjOTc4NDY5NzVjYzg0ZDQwN2Y3YyIsImlhdCI6MTc0NzExMDU1OCwiZXhwIjoxNzQ3MTk2OTU4fQ.l0Jm2cyoLeFvLeRyaMQg8bMfT4eHBVCckd1GFbrwUgk",
+			"type": "string"
+		}
+	]
+}

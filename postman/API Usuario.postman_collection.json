@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "e43e149f-a897-4de0-aa8f-07daabe786b4",
+		"name": "API Usuario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44412593",
+		"_collection_link": "https://gian-2971076.postman.co/workspace/Gian's-Workspace~83da9655-d094-414e-8472-6fd7c20bcd0f/collection/44412593-e43e149f-a897-4de0-aa8f-07daabe786b4?action=share&source=collection_link&creator=44412593"
+	},
+	"item": [
+		{
+			"name": "Cadastro Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Pedro\",\r\n  \"email\": \"pedro@gmail.com\",\r\n  \"password\": \"123456\",\r\n  \"phone\": \"(12)91234-5678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/usuario/register",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"usuario",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"pedro@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/usuario/login",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"usuario",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resgatar Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/usuario/all",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"usuario",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resgatar Usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/usuario/6822c97846975cc84d407f7c",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"usuario",
+						"6822c97846975cc84d407f7c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Usuario",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"gianpedro@unect\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/usuario/6822c97846975cc84d407f7c",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"usuario",
+						"6822c97846975cc84d407f7c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/usuario/6822c97846975cc84d407f7c",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"usuario",
+						"6822c97846975cc84d407f7c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resgatar me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjJjYzk0NWIzMDZmYmU5ODBhMTdlYiIsImlhdCI6MTc0NzExMTQ5NCwiZXhwIjoxNzQ3MTk3ODk0fQ.r14IC9iPGjI8qGyONPvD_is9RWBAt8EQK8mk9Pxv_Jo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/usuario/me",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"usuario",
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
