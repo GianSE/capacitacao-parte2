@@ -93,7 +93,7 @@ Authorization: Bearer SEU_TOKEN_JWT
 
 ### 📍 `GET /usuario/me` *(com token)*
 
-**Resgata o usuário dono do token
+**Resgata o usuário dono do token**
 
 ---
 
