@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"pedro@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+					"raw": "{\r\n  \"email\": \"gianpedro@unect\",\r\n  \"password\": \"123456\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -150,7 +150,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjJjYzk0NWIzMDZmYmU5ODBhMTdlYiIsImlhdCI6MTc0NzExMTQ5NCwiZXhwIjoxNzQ3MTk3ODk0fQ.r14IC9iPGjI8qGyONPvD_is9RWBAt8EQK8mk9Pxv_Jo",
+							"value": "eyJhbGciOiIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MjJjYzk0NWIzMDZmYmU5ODBhMTdlYiIsImlhdCI6MTc0NzE1MzIxMCwiZXhwIjoxNzQ3MjM5NjEwfQ.8UOO_hMQ3YUmmfytrQ2hmZOirHwSxa8RvLAW11Oq3YE",
 							"type": "string"
 						}
 					]

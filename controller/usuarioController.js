@@ -83,14 +83,22 @@ exports.updateUsuario = async (req, res) => {
     }
 }
 
+const Pet = require('../models/Pet') // ou o caminho correto para o model Pet
+
 exports.deleteUsuario = async (req, res) => {
     try {
         const usuario = await Usuario.findOne({ _id: req.params.id })
         if (!usuario) return res.status(422).json({ message: 'Usuário não encontrado' })
 
+        // Deletar todos os pets associados ao usuário
+        await Pet.deleteMany({ user: usuario._id })
+
+        // Agora deletar o usuário
         await Usuario.deleteOne({ _id: req.params.id })
-        res.status(200).json({ message: 'Usuário removido com sucesso' })
+
+        res.status(200).json({ message: 'Usuário e pets removidos com sucesso' })
     } catch (error) {
         res.status(500).json({ erro: error })
     }
 }
+
