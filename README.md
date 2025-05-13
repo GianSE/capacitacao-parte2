@@ -95,7 +95,7 @@ Authorization: Bearer SEU_TOKEN_JWT
 
 ## 🐶 Pets
 
-### 📍 `POST /pet/` *(com token)*
+### 📍 `POST /pet/register` *(com token)*
 
 **Cadastrar pet**
 
