@@ -188,4 +188,3 @@ Authorization: Bearer SEU_TOKEN_JWT
 
 * Use ferramentas como Postman para testar.
 * Sempre forneça o token JWT nas rotas protegidas.
-* O `userId` é extraído automaticamente via token nas rotas seguras.
