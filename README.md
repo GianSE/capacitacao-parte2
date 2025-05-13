@@ -9,7 +9,7 @@ Esta API permite o cadastro e autenticação de usuários, gerenciamento de pets
 ### Pré-requisitos
 
 * Node.js
-* MongoDB (local ou Atlas)
+* MongoDB (Atlas)
 
 ### Passos para rodar localmente:
 
@@ -21,8 +21,8 @@ npm start
 Crie um arquivo `.env` na raiz com o seguinte conteúdo:
 
 ```env
+MONGO_URL=sua_string_de_conexao_mongodb
 SECRET=sua_chave_secreta
-MONGO_URI=sua_string_de_conexao_mongodb
 ```
 
 ---
@@ -47,8 +47,8 @@ Authorization: Bearer SEU_TOKEN_JWT
 
 ```json
 {
-  "name": "Maria",
-  "email": "maria@email.com",
+  "name": "Gian",
+  "email": "gian@gmail.com",
   "password": "123456",
   "phone": "11999999999"
 }
@@ -62,14 +62,14 @@ Authorization: Bearer SEU_TOKEN_JWT
 
 ```json
 {
-  "email": "maria@email.com",
+  "email": "gian@gmail.com",
   "password": "123456"
 }
 ```
 
 **Resposta:** 200 OK com token JWT
 
-### 📍 `GET /usuario`
+### 📍 `GET /usuario/all`
 
 **Listar todos os usuários**
 
@@ -91,6 +91,10 @@ Authorization: Bearer SEU_TOKEN_JWT
 
 **Deletar usuário por ID**
 
+### 📍 `GET /usuario/me` *(com token)*
+
+**Resgata o usuário dono do token
+
 ---
 
 ## 🐶 Pets
@@ -101,7 +105,7 @@ Authorization: Bearer SEU_TOKEN_JWT
 
 ```json
 {
-  "name": "Bob",
+  "name": "Thor",
   "age": 3,
   "weight": 10,
   "color": "Marrom"
@@ -162,7 +166,7 @@ Authorization: Bearer SEU_TOKEN_JWT
 ### 🐶 Cadastro de Pet (com Token)
 
 * Método: POST
-* URL: `http://localhost:3000/pet/`
+* URL: `http://localhost:3000/pet/register`
 * Headers: Authorization: Bearer `TOKEN`
 * Body: JSON com dados do pet
 
@@ -185,5 +189,3 @@ Authorization: Bearer SEU_TOKEN_JWT
 * Use ferramentas como Postman para testar.
 * Sempre forneça o token JWT nas rotas protegidas.
 * O `userId` é extraído automaticamente via token nas rotas seguras.
-
-Se precisar de uma `collection` pronta para importar no Postman, posso gerar também!

@@ -11,7 +11,7 @@ router.patch('/schedule/:id', checkToken, petController.scheduleVisit)
 router.patch('/adopt/:id', checkToken, petController.adoptPet)
 
 // Rotas públicas
-router.get('/', petController.getAllPets)
+router.get('/all', petController.getAllPets)
 router.get('/:id', petController.getPetById)
 
 module.exports = router

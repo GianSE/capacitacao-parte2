@@ -29,15 +29,21 @@ app.get('/', (req, res) => {
 
 })
 
+/*
 const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASSWORD
-//const URL = process.env.URL
+const dbCluster = process.env.DB_CLUSTER
+const dbName = process.env.DB_NAME
+*/
+
+const MongoURL = process.env.MONGO_URL
 
 //entregar uma porta
+//Conectar usando um arquivo .env
 mongoose
     .connect(
-        //Conectar usando um arquivo .env
-        `mongodb+srv://${dbUser}:${dbPassword}@cluster0.wifytfq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
+        //`mongodb+srv://${dbUser}:${dbPassword}@${dbCluster}/${dbName}?retryWrites=true&w=majority`
+        MongoURL
     )
     .then(() =>{
         console.log("Conectamos ao MongoDB!")
