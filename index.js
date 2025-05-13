@@ -37,7 +37,7 @@ const dbPassword = process.env.DB_PASSWORD
 mongoose
     .connect(
         //Conectar usando um arquivo .env
-        `mongodb+srv://${dbUser}:${dbPassword}@authjwt.masxrtb.mongodb.net/?retryWrites=true&w=majority&appName=authjwt`
+        `mongodb+srv://${dbUser}:${dbPassword}@cluster0.wifytfq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`
     )
     .then(() =>{
         console.log("Conectamos ao MongoDB!")

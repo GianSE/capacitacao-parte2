@@ -3,7 +3,7 @@ const checkToken = require('../middleware/checkToken')
 const petController = require('../controller/petController')
 
 // Rotas protegidas
-router.post('/', checkToken, petController.createPet)
+router.post('/register', checkToken, petController.createPet)
 router.get('/mypets', checkToken, petController.getMyPets)
 router.patch('/:id', checkToken, petController.updatePet)
 router.delete('/:id', checkToken, petController.deletePet)
