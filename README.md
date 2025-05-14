@@ -10,6 +10,7 @@ Esta API permite o cadastro e autenticação de usuários, gerenciamento de pets
 
 - [Node.js](https://nodejs.org/)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- [Postman](https://www.postman.com/)
 
 ### Passos para rodar localmente:
 
@@ -61,7 +62,7 @@ Após o login com sucesso via `POST /usuario/login`, o ambiente `Localhost API` 
 - `auth_token` – token JWT
 - `user_id` – ID do usuário logado
 
-Essas variáveis são usadas em todas as outras requisições automaticamente.
+Essas variáveis são usadas em todas as outras requisições, em que exigem elas, automaticamente.
 
 > Não é necessário copiar e colar manualmente o token ou ID para testar as rotas protegidas!
 
@@ -129,7 +130,7 @@ Authorization: Bearer SEU_TOKEN_JWT
 
 ### 📍 `DELETE /usuario/:id`
 
-**Deletar usuário por ID**
+**Deletar usuário por ID e os pets ligados ao mesmo**
 
 ### 📍 `GET /usuario/me` *(com token)*
 
