@@ -8,25 +8,29 @@ Esta API permite o cadastro e autenticação de usuários, gerenciamento de pets
 
 ### Pré-requisitos
 
-* Node.js
-* MongoDB (Atlas)
+- [Node.js](https://nodejs.org/)
+- [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
 ### Passos para rodar localmente:
 
 ```bash
+# Clone o repositório
+git clone https://github.com/GianSE/capacitacao-parte2
+
+# Instale as dependências
 npm install
-npm start
 ```
 
-Crie um arquivo `.env` na raiz com o seguinte conteúdo:
+Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
 
 ```env
-# Substitua com a sua string de conexão do MongoDB Atlas
+# Substitua com sua string de conexão do MongoDB Atlas
 MONGO_URL=mongodb+srv://seu_usuario:sua_senha@seuclusterteste.mongodb.net/nomeDoBanco?retryWrites=true&w=majority
+```
 
-# Chave secreta usada para assinar tokens JWT, pode ser qualquer coisa ex: batata123
-SECRET=minha_chave_secreta_ultra_segura
-
+```bash
+# Inicie a aplicação
+npm start
 ```
 
 ---
@@ -38,7 +42,7 @@ O projeto inclui uma pasta chamada `postman/` com coleções e um ambiente confi
 ### Como usar:
 
 1. Abra o Postman.
-2. Clique em **"Import"** e selecione os arquivos da pasta `postman/`:
+2. Clique em **"Import"** e selecione a pasta `postman/` ou seus arquivos:
    - `API Usuario.postman_collection.json`
    - `API Pets.postman_collection.json`
    - `Localhost API.postman_environment.json`
@@ -62,9 +66,9 @@ Essas variáveis são usadas em todas as outras requisições automaticamente.
 
 ## 🔐 Autenticação
 
-A autenticação é feita via JWT. Após o login, você receberá um token que deve ser usado nos headers para rotas protegidas.
+A autenticação é feita via JWT. Após o login, você receberá um token que deve ser usado para rotas protegidas.
 
-**Header necessário:**
+Porém ao logar a variável do ambiente {{auth_token}} será atualizada e poderá autenticar as rotas protegidas automaticamente
 
 ```
 Authorization: Bearer SEU_TOKEN_JWT
