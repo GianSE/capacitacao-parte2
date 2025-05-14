@@ -27,6 +27,35 @@ SECRET=sua_chave_secreta
 
 ---
 
+## 📂 Coleções do Postman
+
+O projeto inclui uma pasta chamada `postman/` com coleções e um ambiente configurado para facilitar os testes da API.
+
+### Como usar:
+
+1. Abra o Postman.
+2. Clique em **"Import"** e selecione os arquivos da pasta `postman/`:
+   - `API Usuario.postman_collection.json`
+   - `API Pets.postman_collection.json`
+   - `Localhost API.postman_environment.json`
+3. Selecione o ambiente **Localhost API** no canto superior direito do Postman.
+4. Agora você pode testar todos os endpoints com exemplos prontos e variáveis como token e ID já configuradas.
+
+> ✅ As coleções incluem todos os endpoints com exemplos de requisições, corpo e autenticação via JWT.
+
+### ℹ️ Dica: uso automático de token e ID de usuário no Postman
+
+Após o login com sucesso via `POST /usuario/login`, o ambiente `Localhost API` armazena automaticamente:
+
+- `auth_token` – token JWT
+- `user_id` – ID do usuário logado
+
+Essas variáveis são usadas em todas as outras requisições automaticamente.
+
+> Não é necessário copiar e colar manualmente o token ou ID para testar as rotas protegidas!
+
+---
+
 ## 🔐 Autenticação
 
 A autenticação é feita via JWT. Após o login, você receberá um token que deve ser usado nos headers para rotas protegidas.
@@ -112,7 +141,7 @@ Authorization: Bearer SEU_TOKEN_JWT
 }
 ```
 
-### 📍 `GET /pet/`
+### 📍 `GET /pet/all`
 
 **Listar todos os pets disponíveis**
 
