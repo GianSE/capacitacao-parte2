@@ -26,6 +26,9 @@ Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
 ```env
 # Substitua com sua string de conexão do MongoDB Atlas
 MONGO_URL=mongodb+srv://seu_usuario:sua_senha@seuclusterteste.mongodb.net/nomeDoBanco?retryWrites=true&w=majority
+
+# Chave secreta usada para assinar tokens JWT, pode ser qualquer coisa ex: batata123
+SECRET=minha_chave_secreta_ultra_segura
 ```
 
 ```bash
