@@ -21,8 +21,12 @@ npm start
 Crie um arquivo `.env` na raiz com o seguinte conteúdo:
 
 ```env
-MONGO_URL=sua_string_de_conexao_mongodb
-SECRET=sua_chave_secreta
+# Substitua com a sua string de conexão do MongoDB Atlas
+MONGO_URL=mongodb+srv://seu_usuario:sua_senha@seuclusterteste.mongodb.net/nomeDoBanco?retryWrites=true&w=majority
+
+# Chave secreta usada para assinar tokens JWT, pode ser qualquer coisa ex: batata123
+SECRET=minha_chave_secreta_ultra_segura
+
 ```
 
 ---
